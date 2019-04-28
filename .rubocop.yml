@@ -9,6 +9,7 @@ AllCops:
     - '**/Rakefile'
   Exclude:
     - 'bin/*'
+    - 'lib/tasks/auto_annotate_models.rake'
 
 Metrics/LineLength:
   Exclude:
