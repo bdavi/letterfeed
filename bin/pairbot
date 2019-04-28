@@ -11,7 +11,7 @@ class AnalysisTool
 
   def_delegator :@status, :success?
 
-  def initialize name:, cmd:
+  def initialize(name:, cmd:)
     @name = name
     @cmd = cmd
   end
@@ -28,37 +28,37 @@ end
 
 analysis_tools = [
   AnalysisTool.new(
-    name: "Rubocop",
-    cmd: "bundle exec rubocop"
+    name: 'Rubocop',
+    cmd: 'bundle exec rubocop'
   ),
   AnalysisTool.new(
-    name: "Brakeman",
-    cmd: "bundle exec brakeman"
+    name: 'Brakeman',
+    cmd: 'bundle exec brakeman'
   ),
   AnalysisTool.new(
-    name: "Stylelint",
-    cmd: "./node_modules/stylelint/bin/stylelint.js ./app/assets/stylesheets/"
+    name: 'Stylelint',
+    cmd: './node_modules/stylelint/bin/stylelint.js ./app/assets/stylesheets/'
   ),
   AnalysisTool.new(
-    name: "ESLint",
-    cmd: "./node_modules/.bin/eslint ./app/assets/javascripts/"
+    name: 'ESLint',
+    cmd: './node_modules/.bin/eslint ./app/assets/javascripts/'
   ),
   AnalysisTool.new(
-    name: "ERBlint",
-    cmd: "bundle exec erblint --lint-all"
+    name: 'ERBlint',
+    cmd: 'bundle exec erblint --lint-all'
   ),
   AnalysisTool.new(
-    name: "Rails BP",
-    cmd: "bundle exec rails_best_practices ."
+    name: 'Rails BP',
+    cmd: 'bundle exec rails_best_practices .'
   ),
   AnalysisTool.new(
-    name: "Reek",
-    cmd: "bundle exec reek ."
+    name: 'Reek',
+    cmd: 'bundle exec reek .'
   ),
   AnalysisTool.new(
-    name: "Flay",
-    cmd: "bundle exec flay ./app/"
-  ),
+    name: 'Flay',
+    cmd: 'bundle exec flay ./app/'
+  )
 ]
 
 puts analysis_tools.each(&:run)
