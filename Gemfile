@@ -23,6 +23,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rails_best_practices'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
