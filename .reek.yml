@@ -1,0 +1,5 @@
+---
+detectors:
+  # Handled by rubocop with more granularity
+  IrresponsibleModule:
+    enabled: false
