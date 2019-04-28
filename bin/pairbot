@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'open3'
+require 'forwardable'
+
+class AnalysisTool
+  extend Forwardable
+
+  attr_accessor :name, :cmd, :output, :status
+
+  def_delegator :@status, :success?
+
+  def initialize name:, cmd:
+    @name = name
+    @cmd = cmd
+  end
+
+  def run
+    @output, _, @status = Open3.capture3(cmd)
+    puts output unless success?
+  end
+
+  def to_s
+    "#{name.ljust(10)}: #{success? ? 'Success!' : 'FAIL'}"
+  end
+end
+
+analysis_tools = [
+  AnalysisTool.new(
+    name: "Rubocop",
+    cmd: "bundle exec rubocop"
+  ),
+  AnalysisTool.new(
+    name: "Brakeman",
+    cmd: "bundle exec brakeman"
+  ),
+  AnalysisTool.new(
+    name: "Stylelint",
+    cmd: "./node_modules/stylelint/bin/stylelint.js ./app/assets/stylesheets/"
+  ),
+  AnalysisTool.new(
+    name: "ESLint",
+    cmd: "./node_modules/.bin/eslint ./app/assets/javascripts/"
+  ),
+  AnalysisTool.new(
+    name: "ERBlint",
+    cmd: "bundle exec erblint --lint-all"
+  ),
+  AnalysisTool.new(
+    name: "Rails BP",
+    cmd: "bundle exec rails_best_practices ."
+  ),
+  AnalysisTool.new(
+    name: "Reek",
+    cmd: "bundle exec reek ."
+  ),
+  AnalysisTool.new(
+    name: "Flay",
+    cmd: "bundle exec flay ./app/"
+  ),
+]
+
+puts analysis_tools.each(&:run)
