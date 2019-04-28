@@ -19,6 +19,7 @@ end
 
 group :development do
   gem 'brakeman'
+  gem 'bullet'
   gem 'erb_lint', require: false
   gem 'flay'
   gem 'flay-js'
