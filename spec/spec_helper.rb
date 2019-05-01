@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'capybara/rspec'
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.server = :puma, { Silent: true }
 
 require 'simplecov'
 SimpleCov.start do

@@ -10,6 +10,7 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'lib/tasks/auto_annotate_models.rake'
+    - 'db/schema.rb'
 
 Metrics/LineLength:
   Exclude:
