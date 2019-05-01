@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'capybara/rspec'
+
 require 'simplecov'
 SimpleCov.start do
   add_filter(/spec/)
