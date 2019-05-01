@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read('.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bullet'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
@@ -20,7 +21,6 @@ end
 group :development do
   gem 'annotate'
   gem 'brakeman'
-  gem 'bullet'
   gem 'erb_lint', require: false
   gem 'flay'
   gem 'flay-actionpack'
